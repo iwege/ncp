@@ -232,7 +232,7 @@ describe('ncp', function () {
       });
     });
 
-    it('copies `src` to `src/out` and the `src/out` directory doesn\'t exists ', function(cb) {
+    it('copies `src` to `src/out` and directory `src/out`  doesn\'t exists ', function(cb) {
       rimraf(out, function() {
         ncp(src, out, function(err) {
           assert.equal(err.code, 'ESELF');
@@ -257,14 +257,14 @@ describe('ncp', function () {
       });
     });
 
-    it('copies `src/a` copy to `src/a` ', function(cb) {
+    it('copies file `src/a`  to file `src/a` ', function(cb) {
       ncp(src_a, src_a, function(err) {
         assert.equal(err.code, 'ESELF');
         cb();
       });
     });
 
-    it('copies `src/out` to `src/a` ', function(cb) {
+    it('copies directory `src/out` to  file `src/a`  ', function(cb) {
       ncp(src_out, src_a, function(err) {
         assert.ok(!err);
         cb();
